@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "B01D92F4-5808-4231-A5E8-BD0ADCAC6F65",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Metronome.xcodeproj",
+      "identifier" : "20A662BE2A967146000EC564",
+      "name" : "Metronome"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "AppRoutingTests",
+        "name" : "AppRoutingTests"
+      }
+    }
+  ],
+  "version" : 1
+}

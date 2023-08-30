@@ -64,6 +64,7 @@
 		20C2FE3F2A9D4C5D003B7CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20C2FE492A9DF4BD003B7CB7 /* Metronome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Metronome.entitlements; sourceTree = "<group>"; };
 		20C2FE4A2A9DF554003B7CB7 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
+		20C2FE4F2AA007EB003B7CB7 /* Metronome.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Metronome.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +94,7 @@
 		20A662B62A967146000EC564 = {
 			isa = PBXGroup;
 			children = (
+				20C2FE4F2AA007EB003B7CB7 /* Metronome.xctestplan */,
 				20A662D02A967802000EC564 /* ios-metronome */,
 				20A662C12A967146000EC564 /* Metronome */,
 				20C2FE342A9D4C58003B7CB7 /* Widget */,
