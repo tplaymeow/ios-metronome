@@ -1,12 +1,17 @@
 import Foundation
 
 extension FormatStyle where Self == EmojiFormatStyle<Int> {
+  @inlinable
   public static var emoji: Self {
     EmojiFormatStyle()
   }
 }
 
 public struct EmojiFormatStyle<Value: BinaryInteger>: FormatStyle {
+  @inlinable
+  public init() {}
+
+  @inlinable
   public func format(_ value: Value) -> String {
     value
       .formatted()
@@ -15,7 +20,8 @@ public struct EmojiFormatStyle<Value: BinaryInteger>: FormatStyle {
       .joined()
   }
 
-  private static func emoji(for digit: Int) -> String? {
+  @usableFromInline
+  internal static func emoji(for digit: Int) -> String? {
     switch digit {
     case 0: "0️⃣"
     case 1: "1️⃣"

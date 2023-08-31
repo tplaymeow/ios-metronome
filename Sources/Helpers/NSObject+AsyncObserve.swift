@@ -6,6 +6,7 @@ public protocol _AsyncKeyValueObserving {}
 extension NSObject: _AsyncKeyValueObserving {}
 
 extension _AsyncKeyValueObserving where Self: NSObject {
+  @inlinable
   public func asyncObserve<Value>(
     for keyPath: KeyPath<Self, Value>,
     options: NSKeyValueObservingOptions = [.initial, .new]

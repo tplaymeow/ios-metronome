@@ -2,9 +2,11 @@ import DependenciesAdditions
 import Foundation
 import MetronomeModels
 
-private let metronomeBPMKey = "METRONOME_BPM_KEY"
+@usableFromInline
+internal let metronomeBPMKey = "METRONOME_BPM_KEY"
 
 extension UserDefaults.Dependency {
+  @inlinable
   public var metronomeTempo: Tempo? {
     get {
       self.integer(forKey: metronomeBPMKey)

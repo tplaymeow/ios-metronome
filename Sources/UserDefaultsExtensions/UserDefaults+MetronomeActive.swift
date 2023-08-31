@@ -1,9 +1,11 @@
 import DependenciesAdditions
 import Foundation
 
-private let metronomeActiveKey = "METRONOME_ACTIVE_KEY"
+@usableFromInline
+internal let metronomeActiveKey = "METRONOME_ACTIVE_KEY"
 
 extension UserDefaults.Dependency {
+  @inlinable
   public var metronomeActive: Bool? {
     get {
       self.bool(forKey: metronomeActiveKey)

@@ -7,11 +7,13 @@ public struct WidgetActivityAttributes: ActivityAttributes, Sendable {
     public let active: Bool
     public let tempo: Tempo
 
+    @inlinable
     public init(active: Bool, tempo: Tempo) {
       self.active = active
       self.tempo = tempo
     }
   }
 
+  @inlinable
   public init() {}
 }
