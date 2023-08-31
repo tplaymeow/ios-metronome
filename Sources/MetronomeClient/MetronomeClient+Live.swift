@@ -56,10 +56,12 @@ extension MetronomeClient {
 
       let sampleRate = file.processingFormat.sampleRate
       let periodLength = AVAudioFrameCount(sampleRate / tempo.bps)
-      guard let buffer = AVAudioPCMBuffer(
-        pcmFormat: file.processingFormat,
-        frameCapacity: periodLength
-      ) else {
+      guard
+        let buffer = AVAudioPCMBuffer(
+          pcmFormat: file.processingFormat,
+          frameCapacity: periodLength
+        )
+      else {
         throw MetronomeClient.Error.startError(underlying: nil)
       }
 

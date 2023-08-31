@@ -1,5 +1,5 @@
-import Foundation
 import DependenciesAdditions
+import Foundation
 import MetronomeModels
 
 private let metronomeBPMKey = "METRONOME_BPM_KEY"

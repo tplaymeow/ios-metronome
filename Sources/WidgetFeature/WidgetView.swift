@@ -1,8 +1,8 @@
-import SwiftUI
-import Design
-import Helpers
 import AppRouting
 import Dependencies
+import Design
+import Helpers
+import SwiftUI
 
 public struct WidgetView: View {
   public var body: some View {

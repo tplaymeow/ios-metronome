@@ -1,22 +1,21 @@
-import Foundation
-import ComposableArchitecture
-import AssertionDependency
-import UserDefaultsDependency
-import MetronomeClient
-import AudioSessionClient
-import UserDefaultsExtensions
-import MetronomeModels
-import WidgetCenterClient
-import AppRouting
 import ActivityClient
-import WidgetLiveActivityClient
-import WidgetActivityAttributes
-
+import AppRouting
+import AssertionDependency
+import AudioSessionClient
+import ComposableArchitecture
+import Foundation
+import MetronomeClient
+import MetronomeModels
 // TODO: Remove this import
 // I have to explicitly import SwiftUINavigationCore with @preconcurrency
 // because AlertState not Sendable now
 // https://github.com/pointfreeco/swiftui-navigation/pull/116
 @preconcurrency import SwiftUINavigationCore
+import UserDefaultsDependency
+import UserDefaultsExtensions
+import WidgetActivityAttributes
+import WidgetCenterClient
+import WidgetLiveActivityClient
 
 public struct AppFeature: Reducer, Sendable {
   public struct State: Sendable {

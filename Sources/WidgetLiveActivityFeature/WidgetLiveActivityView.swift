@@ -1,11 +1,11 @@
 import ActivityKit
-import WidgetKit
+import AppRouting
+import Dependencies
+import Design
+import Helpers
 import SwiftUI
 import WidgetActivityAttributes
-import Design
-import AppRouting
-import Helpers
-import Dependencies
+import WidgetKit
 
 public struct WidgetLiveActivityView: View {
   public var body: some View {

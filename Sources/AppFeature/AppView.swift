@@ -1,6 +1,6 @@
-import SwiftUI
 import ComposableArchitecture
 import Design
+import SwiftUI
 
 public struct AppView: View {
   public var body: some View {

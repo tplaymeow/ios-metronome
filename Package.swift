@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "metronome",
   platforms: [
-    .iOS("16.1"),
+    .iOS("16.1")
   ],
   products: [
     .library(name: "AppFeature", targets: ["AppFeature"]),
@@ -45,10 +45,10 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       resources: [
-        .process("Resources"),
+        .process("Resources")
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -59,7 +59,7 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -70,19 +70,19 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
       name: "Design",
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
       name: "Helpers",
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -92,7 +92,7 @@ let package = Package(
         .product(name: "DependenciesAdditions", package: "swift-dependencies-additions"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -107,13 +107,13 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
       name: "MetronomeModels",
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -123,7 +123,7 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -133,25 +133,25 @@ let package = Package(
         .product(name: "URLRouting", package: "swift-url-routing"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .testTarget(
       name: "AppRoutingTests",
       dependencies: [
-        "AppRouting",
+        "AppRouting"
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
       name: "WidgetActivityAttributes",
       dependencies: [
-        "MetronomeModels",
+        "MetronomeModels"
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -164,7 +164,7 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -174,7 +174,7 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
     .target(
@@ -185,7 +185,7 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [
-        .enableExperimentalFeature("StrictConcurrency=complete"),
+        .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
   ]

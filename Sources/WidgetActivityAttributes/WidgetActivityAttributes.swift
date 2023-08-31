@@ -1,6 +1,6 @@
-import WidgetKit
 import ActivityKit
 import MetronomeModels
+import WidgetKit
 
 public struct WidgetActivityAttributes: ActivityAttributes, Sendable {
   public struct ContentState: Codable, Hashable, Sendable {

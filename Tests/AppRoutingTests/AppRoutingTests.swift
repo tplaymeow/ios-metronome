@@ -1,5 +1,5 @@
-import XCTest
 import AppRouting
+import XCTest
 
 final class AppRoutingTests: XCTestCase {
   func testMatcher() throws {
@@ -14,6 +14,11 @@ final class AppRoutingTests: XCTestCase {
       try match(url: URL(string: "tplaymeow://metronome/startMetronome")!),
       .startMetronome
     )
+
+    XCTAssertEqual(
+      try match(url: URL(string: "tplaymeow://metronome/stopMetronome")!),
+      .stopMetronome
+    )
   }
 
   func testEncoder() {
@@ -27,6 +32,11 @@ final class AppRoutingTests: XCTestCase {
     XCTAssertEqual(
       encode(for: .startMetronome),
       URL(string: "tplaymeow://metronome/startMetronome")!
+    )
+
+    XCTAssertEqual(
+      encode(for: .stopMetronome),
+      URL(string: "tplaymeow://metronome/stopMetronome")!
     )
   }
 }

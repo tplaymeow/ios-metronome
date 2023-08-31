@@ -1,5 +1,5 @@
-import URLRouting
 import CasePaths
+import URLRouting
 
 let appRouter = OneOf {
   Route(.case(AppRoute.default))

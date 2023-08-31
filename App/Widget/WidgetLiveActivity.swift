@@ -1,7 +1,7 @@
 import ActivityKit
-import WidgetKit
 import SwiftUI
 import WidgetActivityAttributes
+import WidgetKit
 import WidgetLiveActivityFeature
 
 struct MetronomeWidgetLiveActivity: Widget {

@@ -1,5 +1,5 @@
-import Dependencies
 import ActivityClient
+import Dependencies
 import WidgetActivityAttributes
 
 extension DependencyValues {

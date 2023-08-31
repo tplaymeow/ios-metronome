@@ -1,7 +1,7 @@
-import SwiftUI
-import ComposableArchitecture
-import UserDefaultsDependency
 import AppFeature
+import ComposableArchitecture
+import SwiftUI
+import UserDefaultsDependency
 import UserDefaultsExtensions
 
 @main

@@ -1,6 +1,6 @@
-import Foundation
 import Dependencies
 import DependenciesAdditionsBasics
+import Foundation
 import MetronomeModels
 
 extension DependencyValues {

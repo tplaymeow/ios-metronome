@@ -1,9 +1,9 @@
-import WidgetKit
-import SwiftUI
 import ComposableArchitecture
+import SwiftUI
 import UserDefaultsDependency
 import UserDefaultsExtensions
 import WidgetFeature
+import WidgetKit
 
 struct MetronomeWidgetTimelineProvider: TimelineProvider {
   func placeholder(in context: Context) -> WidgetFeature.Entry {

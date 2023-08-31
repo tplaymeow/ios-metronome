@@ -13,17 +13,21 @@ extension ActivityClient: DependencyKey {
 }
 
 public struct ActivityClient<Attributes: ActivityAttributes>: ConfigurableProxy, Sendable
-where Attributes: Sendable,
-      Attributes.ContentState: Sendable {
+where
+  Attributes: Sendable,
+  Attributes.ContentState: Sendable
+{
   public struct Implementation: Sendable {
     @FunctionProxy
-    public var request: @Sendable (Attributes, Attributes.ContentState, PushType?) async throws -> Void
+    public var request:
+      @Sendable (Attributes, Attributes.ContentState, PushType?) async throws -> Void
 
     @FunctionProxy
     public var update: @Sendable (Attributes.ContentState) async throws -> Void
 
     @FunctionProxy
-    public var end: @Sendable (Attributes.ContentState?, ActivityUIDismissalPolicy) async throws -> Void
+    public var end:
+      @Sendable (Attributes.ContentState?, ActivityUIDismissalPolicy) async throws -> Void
   }
 
   @_spi(Internals)

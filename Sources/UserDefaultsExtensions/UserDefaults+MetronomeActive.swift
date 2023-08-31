@@ -1,5 +1,5 @@
-import Foundation
 import DependenciesAdditions
+import Foundation
 
 private let metronomeActiveKey = "METRONOME_ACTIVE_KEY"
 
