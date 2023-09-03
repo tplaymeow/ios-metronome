@@ -18,7 +18,7 @@ import WidgetCenterClient
 import WidgetLiveActivityClient
 
 public struct AppFeature: Reducer, Sendable {
-  public struct State: Sendable {
+  public struct State: Equatable, Sendable {
     public var appearedOnce: Bool = false
     public var active: Bool = false
     public var outputVolume: Float = 0.0
@@ -28,7 +28,7 @@ public struct AppFeature: Reducer, Sendable {
     public var alert: AlertState<AlertAction>?
 
     public var liveActivityState: WidgetActivityAttributes.ContentState {
-      .init(active: self.active, tempo: self.tempo)
+      .init(tempo: .init(bpm: 60), outputVolume: 5.0)
     }
 
     public init() {}
@@ -52,6 +52,10 @@ public struct AppFeature: Reducer, Sendable {
     case startMetronome
   }
 
+  public enum CancelID {
+    case liveActivitySync
+  }
+
   public var body: some ReducerOf<Self> {
     Reduce { state, action in
       switch action {
@@ -68,13 +72,6 @@ public struct AppFeature: Reducer, Sendable {
             for await outputVolume in self.audioSession.observeOutputVolume() {
               await send(.updateOutputVolume(volume: outputVolume))
             }
-          },
-          .run { [liveActivityState = state.liveActivityState] _ in
-            try await self.widgetLiveActivity.request(
-              attributes: .init(),
-              contentState: liveActivityState)
-          } catch: { error, _ in
-            self.assertionFailure(error.localizedDescription)
           }
         )
 
@@ -87,26 +84,26 @@ public struct AppFeature: Reducer, Sendable {
         case .startMetronome:
           return .merge(
             self.startMetronome(state: &state),
-            self.syncLiveActivity(state: &state)
+            self.startLiveActivity(state: &state)
           )
 
         case .stopMetronome:
           return .merge(
             self.stopMetronome(state: &state),
-            self.syncLiveActivity(state: &state)
+            self.stopLiveActivity(state: &state)
           )
         }
 
       case .startMetronome where state.active:
         return .merge(
           self.stopMetronome(state: &state),
-          self.syncLiveActivity(state: &state)
+          self.stopLiveActivity(state: &state)
         )
 
       case .startMetronome:
         return .merge(
           self.startMetronome(state: &state),
-          self.syncLiveActivity(state: &state)
+          self.startLiveActivity(state: &state)
         )
 
       case let .updateTempo(offset):
@@ -119,12 +116,16 @@ public struct AppFeature: Reducer, Sendable {
             self.syncLiveActivity(state: &state)
           )
         } else {
-          return self.syncLiveActivity(state: &state)
+          return .none
         }
 
       case let .updateOutputVolume(volume):
         state.outputVolume = volume
-        return .none
+        if state.active {
+          return self.syncLiveActivity(state: &state)
+        } else {
+          return .none
+        }
 
       case .setupAudioSessionError:
         state.alert = AlertState {
@@ -195,6 +196,9 @@ public struct AppFeature: Reducer, Sendable {
   @Dependency(\.assertionFailure)
   private var assertionFailure
 
+  @Dependency(\.continuousClock)
+  private var clock
+
   private var metronomeTickURL: URL {
     Bundle.module.url(forResource: "metronome-tick", withExtension: "wav")!
   }
@@ -234,11 +238,30 @@ public struct AppFeature: Reducer, Sendable {
     }
   }
 
-  private func syncLiveActivity(state: inout State) -> Effect<Action> {
+  private func startLiveActivity(state: inout State) -> Effect<Action> {
     .run { [liveActivityState = state.liveActivityState] _ in
-      try await self.widgetLiveActivity.update(using: liveActivityState)
+      try await self.widgetLiveActivity.request(
+        attributes: .init(),
+        contentState: liveActivityState)
     } catch: { error, _ in
       self.assertionFailure(error.localizedDescription)
     }
+  }
+
+  private func stopLiveActivity(state: inout State) -> Effect<Action> {
+    .run { _ in
+      try await self.widgetLiveActivity.end(dismissalPolicy: .immediate)
+    } catch: { error, _ in
+      self.assertionFailure(error.localizedDescription)
+    }
+  }
+
+  private func syncLiveActivity(state: inout State) -> Effect<Action> {
+    .run { [liveActivityState = state.liveActivityState] _ in
+      try await self.clock.sleep(for: .seconds(1))
+      try await self.widgetLiveActivity.update(using: liveActivityState)
+    } catch: { error, _ in
+      self.assertionFailure(error.localizedDescription)
+    }.cancellable(id: CancelID.liveActivitySync, cancelInFlight: true)
   }
 }

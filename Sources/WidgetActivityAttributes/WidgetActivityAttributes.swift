@@ -4,13 +4,13 @@ import WidgetKit
 
 public struct WidgetActivityAttributes: ActivityAttributes, Sendable {
   public struct ContentState: Codable, Hashable, Sendable {
-    public let active: Bool
     public let tempo: Tempo
+    public let outputVolume: Float
 
     @inlinable
-    public init(active: Bool, tempo: Tempo) {
-      self.active = active
+    public init(tempo: Tempo, outputVolume: Float) {
       self.tempo = tempo
+      self.outputVolume = outputVolume
     }
   }
 

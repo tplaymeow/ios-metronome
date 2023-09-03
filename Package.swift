@@ -188,5 +188,26 @@ let package = Package(
         .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
+    .testTarget(
+      name: "HelpersTests",
+      dependencies: [
+        "Helpers",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ],
+      swiftSettings: [
+        .enableExperimentalFeature("StrictConcurrency=complete")
+      ]
+    ),
+    .testTarget(
+      name: "AppFeatureTests",
+      dependencies: [
+        "AppFeature",
+        "MetronomeModels",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ],
+      swiftSettings: [
+        .enableExperimentalFeature("StrictConcurrency=complete")
+      ]
+    ),
   ]
 )

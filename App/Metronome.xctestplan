@@ -23,6 +23,20 @@
         "identifier" : "AppRoutingTests",
         "name" : "AppRoutingTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "AppFeatureTests",
+        "name" : "AppFeatureTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "HelpersTests",
+        "name" : "HelpersTests"
+      }
     }
   ],
   "version" : 1

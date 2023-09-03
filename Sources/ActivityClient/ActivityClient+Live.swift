@@ -55,6 +55,7 @@ extension ActivityClient {
       await activity.end(
         using: contentState,
         dismissalPolicy: dismissalPolicy)
+      self.activity = nil
     }
 
     private var activity: Activity<Attributes>?
