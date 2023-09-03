@@ -11,7 +11,12 @@ public struct WidgetLiveActivityView: View {
   public var body: some View {
     HStack(spacing: -containerInset) {
       Container {
-        Text(self.state.active ? "🔉" : "🔇")
+        let title = switch self.state.outputVolume {
+        case 0.0...(1.0 / 3.0): "🔈"
+        case (1.0 / 3.0)...(2.0 / 3.0): "🔉"
+        default: "🔊"
+        }
+        Text(title)
           .font(.system(size: 80.0))
       }
 
@@ -20,17 +25,9 @@ public struct WidgetLiveActivityView: View {
           Text(self.state.tempo.bpm.formatted(.emoji))
         }
 
-        if self.state.active {
-          Link(destination: self.url(for: .stopMetronome)) {
-            Container {
-              Text("⏸️")
-            }
-          }
-        } else {
-          Link(destination: self.url(for: .startMetronome)) {
-            Container {
-              Text("▶️")
-            }
+        Link(destination: self.url(for: .stopMetronome)) {
+          Container {
+            Text("⏸️")
           }
         }
       }
