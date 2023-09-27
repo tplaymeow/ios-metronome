@@ -1,0 +1,27 @@
+{
+  "configurations" : [
+    {
+      "id" : "5F38A388-FB12-481D-AA56-8B84EE20F0DE",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "AppFeatureTests"
+      ],
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "AppFeatureTests",
+        "name" : "AppFeatureTests"
+      }
+    }
+  ],
+  "version" : 1
+}

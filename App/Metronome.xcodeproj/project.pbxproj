@@ -53,6 +53,7 @@
 		20A662C62A96714C000EC564 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20A662C92A96714C000EC564 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		20A662D02A967802000EC564 /* ios-metronome */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ios-metronome"; path = ..; sourceTree = "<group>"; };
+		20B4E1332AA54AF8009C6F7E /* MetronomeSnapshots.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = MetronomeSnapshots.xctestplan; path = ../MetronomeSnapshots.xctestplan; sourceTree = "<group>"; };
 		20C2FE2A2A968396003B7CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		20C2FE2F2A9D4C58003B7CB7 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		20C2FE302A9D4C58003B7CB7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -95,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				20C2FE4F2AA007EB003B7CB7 /* Metronome.xctestplan */,
+				20B4E1332AA54AF8009C6F7E /* MetronomeSnapshots.xctestplan */,
 				20A662D02A967802000EC564 /* ios-metronome */,
 				20A662C12A967146000EC564 /* Metronome */,
 				20C2FE342A9D4C58003B7CB7 /* Widget */,

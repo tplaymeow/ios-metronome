@@ -23,11 +23,14 @@ let package = Package(
     .library(name: "WidgetLiveActivityFeature", targets: ["WidgetLiveActivityFeature"]),
     .library(name: "ActivityClient", targets: ["ActivityClient"]),
     .library(name: "WidgetLiveActivityClient", targets: ["WidgetLiveActivityClient"]),
+    .library(name: "TestHelpers", targets: ["TestHelpers"]),
   ],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.2.0"),
     .package(url: "https://github.com/tgrapperon/swift-dependencies-additions", from: "1.0.0"),
     .package(url: "https://github.com/pointfreeco/swift-url-routing", exact: "0.6.0"),
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", exact: "1.12.0"),
+    .package(url: "https://github.com/apple/swift-testing.git", branch: "main"),
   ],
   targets: [
     .target(
@@ -139,7 +142,8 @@ let package = Package(
     .testTarget(
       name: "AppRoutingTests",
       dependencies: [
-        "AppRouting"
+        "AppRouting",
+        .product(name: "Testing", package: "swift-testing"),
       ],
       swiftSettings: [
         .enableExperimentalFeature("StrictConcurrency=complete")
@@ -193,6 +197,7 @@ let package = Package(
       dependencies: [
         "Helpers",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+        .product(name: "Testing", package: "swift-testing"),
       ],
       swiftSettings: [
         .enableExperimentalFeature("StrictConcurrency=complete")
@@ -203,6 +208,18 @@ let package = Package(
       dependencies: [
         "AppFeature",
         "MetronomeModels",
+        "TestHelpers",
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ],
+      swiftSettings: [
+        .enableExperimentalFeature("StrictConcurrency=complete")
+      ]
+    ),
+    .target(
+      name: "TestHelpers",
+      dependencies: [
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ],
       swiftSettings: [

@@ -1,42 +1,24 @@
 import AppRouting
-import XCTest
+import Foundation
+import Testing
 
-final class AppRoutingTests: XCTestCase {
-  func testMatcher() throws {
+@Suite
+struct AppRoutingTests {
+  @Test
+  func matcher() throws {
     let match = AppRouterMatcher.liveValue
 
-    XCTAssertEqual(
-      try match(url: URL(string: "tplaymeow://metronome/")!),
-      .default
-    )
-
-    XCTAssertEqual(
-      try match(url: URL(string: "tplaymeow://metronome/startMetronome")!),
-      .startMetronome
-    )
-
-    XCTAssertEqual(
-      try match(url: URL(string: "tplaymeow://metronome/stopMetronome")!),
-      .stopMetronome
-    )
+    #expect(try match(url: URL(string: "tplaymeow://metronome/")!) == .default)
+    #expect(try match(url: URL(string: "tplaymeow://metronome/startMetronome")!) == .startMetronome)
+    #expect(try match(url: URL(string: "tplaymeow://metronome/stopMetronome")!) == .stopMetronome)
   }
 
-  func testEncoder() {
+  @Test
+  func encoder() throws {
     let encode = AppRouterEncoder.liveValue
 
-    XCTAssertEqual(
-      encode(for: .default),
-      URL(string: "tplaymeow://metronome/")!
-    )
-
-    XCTAssertEqual(
-      encode(for: .startMetronome),
-      URL(string: "tplaymeow://metronome/startMetronome")!
-    )
-
-    XCTAssertEqual(
-      encode(for: .stopMetronome),
-      URL(string: "tplaymeow://metronome/stopMetronome")!
-    )
+    #expect(encode(for: .default) == URL(string: "tplaymeow://metronome/")!)
+    #expect(encode(for: .startMetronome) == URL(string: "tplaymeow://metronome/startMetronome")!)
+    #expect(encode(for: .stopMetronome) == URL(string: "tplaymeow://metronome/stopMetronome")!)
   }
 }
